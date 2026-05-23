@@ -5,13 +5,11 @@ class FinanceManager:
     def calculate_balance(self):
         income = 0
         expense = 0
-
         for item in self.transactions:
             if item["type"] == "income":
                 income = income + item["amount"]
             elif item["type"] == "expense":
                 expense = expense + item["amount"]
-
         return income - expense
 
     def detect_overspending(self):
@@ -22,7 +20,6 @@ class FinanceManager:
 
     def category_breakdown(self):
         summary = {}
-
         for item in self.transactions:
             if item["type"] == "expense":
                 category = item.get("category", "other")
@@ -32,13 +29,11 @@ class FinanceManager:
                     summary[category] = summary[category] + amount
                 else:
                     summary[category] = amount
-
         return summary
 
     def monthly_summary(self, month):
         income = 0
         expense = 0
-
         for item in self.transactions:
             if item["date"][:7] == month:
                 if item["type"] == "income":
@@ -56,7 +51,6 @@ class FinanceManager:
     def get_statistics(self):
         incomes = []
         expenses = []
-
         for item in self.transactions:
             if item["type"] == "income":
                 incomes.append(item["amount"])
@@ -84,7 +78,6 @@ class FinanceManager:
 
     def get_all_categories(self):
         categories = set()
-
         for item in self.transactions:
             if item["type"] == "expense":
                 categories.add(item.get("category", "other"))
