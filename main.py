@@ -29,8 +29,8 @@ def show_dict(data):
     if len(data) == 0:
         print("No data")
     else:
-        for category in data:
-            print(f"{category}: {data[category]}")
+        for name in data:
+            print(f"{name}: {data[name]}")
 
 def main():
     data = load_data()
